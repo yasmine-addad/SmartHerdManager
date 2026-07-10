@@ -13,6 +13,19 @@ from .views import ProfileView
 
 from .views import HistoriqueView
 
+from .views import (
+    AdminUserListView,
+    ToggleUserStatusView,
+    AdminDeleteUserView
+)
+
+from .views import (
+    AdminLicenceListView,
+    AdminLicenceUpdateView
+)
+
+from .views import AdminDashboardView
+
 
 urlpatterns = [
     path('register/', views.register, name='register'),
@@ -28,5 +41,35 @@ urlpatterns = [
     "history/",
     HistoriqueView.as_view(),
     name="history"
-),
+    ),
+    path(
+    "admin/users/",
+    AdminUserListView.as_view()
+    ),
+
+    path(
+    "admin/users/<int:id>/status/",
+    ToggleUserStatusView.as_view()
+    ),
+
+    path(
+    "admin/users/<int:pk>/delete/",
+    AdminDeleteUserView.as_view()
+    ),
+
+    path(
+    "admin/licenses/",
+    AdminLicenceListView.as_view()
+    ),
+
+    path(
+    "admin/licenses/<int:pk>/",
+    AdminLicenceUpdateView.as_view()
+    ),
+
+    path(
+    "admin/dashboard/",
+    AdminDashboardView.as_view(),
+    name="admin-dashboard"
+    ),
 ]

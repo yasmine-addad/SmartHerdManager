@@ -2,6 +2,7 @@
 from rest_framework import serializers
 from .models import User,HistoriqueAction
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from .models import Licence
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -87,4 +88,37 @@ class HistoriqueActionSerializer(serializers.ModelSerializer):
             "type_action",
             "details",
             "date_action",
+        ]
+
+class AdminUserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = [
+            "id",
+            "first_name",
+            "last_name",
+            "email",
+            "telephone",
+            "statut_compte",
+            "is_staff",
+        ]
+
+class AdminLicenceSerializer(serializers.ModelSerializer):
+
+    user_email = serializers.EmailField(
+        source="user.email",
+        read_only=True
+    )
+
+    class Meta:
+        model = Licence
+
+        fields = [
+            "id",
+            "user_email",
+            "type",
+            "date_debut",
+            "date_expiration",
+            "statut",
         ]
