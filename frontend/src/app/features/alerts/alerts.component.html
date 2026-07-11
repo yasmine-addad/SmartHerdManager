@@ -1,0 +1,22 @@
+<section class="alerts">
+  <h1 class="alerts__title">Système d'alertes</h1>
+
+  <p *ngIf="isLoading()">Chargement…</p>
+
+  <ul class="alerts__list" *ngIf="!isLoading()">
+    <li
+      class="alert-item"
+      [class.alert-item--unread]="!alert.isRead"
+      *ngFor="let alert of alerts()"
+    >
+      <div>
+        <p class="alert-item__message">{{ alert.message }}</p>
+        <span class="alert-item__due">Échéance : {{ alert.dueDate }}</span>
+      </div>
+      <button class="btn btn--outline" *ngIf="!alert.isRead" (click)="markAsRead(alert)">
+        Marquer comme lu
+      </button>
+    </li>
+    <li *ngIf="!alerts().length">Aucune alerte pour le moment.</li>
+  </ul>
+</section>

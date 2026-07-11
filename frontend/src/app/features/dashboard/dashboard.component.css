@@ -1,0 +1,38 @@
+.dashboard {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.dashboard__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.stat-card {
+  background: #f2efe4;
+  border: 1px solid #eae5d8;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stat-card__value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4a5a2a;
+}
+
+.stat-card__label {
+  font-size: 0.9rem;
+  color: #5a5a52;
+}

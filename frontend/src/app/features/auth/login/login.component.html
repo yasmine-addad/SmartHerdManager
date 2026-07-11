@@ -1,0 +1,25 @@
+<section class="auth">
+  <form class="auth__card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1 class="auth__title">Se connecter</h1>
+
+    <label class="auth__field">
+      <span>Email</span>
+      <input type="email" formControlName="email" placeholder="vous@exemple.com" />
+    </label>
+
+    <label class="auth__field">
+      <span>Mot de passe</span>
+      <input type="password" formControlName="password" placeholder="••••••••" />
+    </label>
+
+    <p class="auth__error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+
+    <button class="btn btn--primary btn--lg auth__submit" type="submit" [disabled]="isLoading()">
+      {{ isLoading() ? 'Connexion…' : 'Se connecter' }}
+    </button>
+
+    <p class="auth__switch">
+      Pas encore de compte ? <a routerLink="/auth/register">Créer un compte</a>
+    </p>
+  </form>
+</section>

@@ -1,0 +1,34 @@
+<section class="hero">
+  <div class="hero__content">
+    <h1 class="hero__title">
+      Gérez votre élevage<br />
+      <span class="hero__title-accent">en toute simplicité</span>
+    </h1>
+    <p class="hero__subtitle">
+      SmartHerdManager est la solution tout-en-un pour suivre, gérer et développer votre cheptel efficacement.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary btn--lg" routerLink="/auth/register">Créer un compte</a>
+      <a class="btn btn--outline btn--lg" routerLink="/fonctionnalites">Découvrir les fonctionnalités</a>
+    </div>
+  </div>
+  <div class="hero__image">
+    <img src="assets/images/hero-sheep.jpg" alt="Troupeau de moutons au coucher de soleil" />
+  </div>
+</section>
+
+<section class="features">
+  <p class="features__eyebrow">FONCTIONNALITÉS</p>
+  <h2 class="features__title">
+    Tout ce dont vous avez besoin<br />
+    pour gérer votre élevage
+  </h2>
+  <div class="features__grid">
+    <app-feature-card
+      *ngFor="let feature of features"
+      [icon]="feature.icon"
+      [title]="feature.title"
+      [description]="feature.description"
+    />
+  </div>
+</section>

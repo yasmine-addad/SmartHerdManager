@@ -1,0 +1,33 @@
+<section class="users">
+  <h1 class="users__title">Gestion des utilisateurs</h1>
+
+  <p *ngIf="isLoading()">Chargement…</p>
+
+  <table class="users__table" *ngIf="!isLoading()">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+        <th>Statut</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users()">
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.isActive ? 'Actif' : 'Inactif' }}</td>
+        <td>
+          <button class="btn btn--outline" (click)="toggleActive(user)">
+            {{ user.isActive ? 'Désactiver' : 'Activer' }}
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="!users().length">
+        <td colspan="5">Aucun utilisateur.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,41 @@
+.animals {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.animals__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.animals__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #eae5d8;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.animals__table th,
+.animals__table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eae5d8;
+  font-size: 0.9rem;
+}
+
+.animals__table th {
+  background: #f2efe4;
+  color: #3a3a34;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .animals__table {
+    display: block;
+    overflow-x: auto;
+  }
+}

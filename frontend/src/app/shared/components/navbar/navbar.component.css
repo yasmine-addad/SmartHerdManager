@@ -1,0 +1,158 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #faf7f0;
+  border-bottom: 1px solid #eae5d8;
+}
+
+.navbar__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #1e1e1c;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.navbar__logo {
+  font-size: 1.8rem;
+}
+
+.navbar__brand-sub {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: #5c6b35;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navbar__links a {
+  text-decoration: none;
+  color: #3a3a34;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.navbar__links a.active,
+.navbar__links a:hover {
+  color: #5c6b35;
+}
+
+.navbar__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.navbar__actions--mobile {
+  display: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn--outline {
+  border-color: #1e1e1c;
+  color: #1e1e1c;
+  background: transparent;
+}
+
+.btn--outline:hover {
+  background: #1e1e1c;
+  color: #fff;
+}
+
+.btn--primary {
+  background: #5c6b35;
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #4a5a2a;
+}
+
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.navbar__burger span {
+  width: 22px;
+  height: 2px;
+  background: #1e1e1c;
+}
+
+@media (max-width: 900px) {
+  .navbar__links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #faf7f0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+    overflow-y: auto;
+  }
+
+  .navbar__links--open {
+    transform: translateX(0);
+  }
+
+  .navbar__actions--desktop {
+    display: none;
+  }
+
+  .navbar__actions--mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navbar__actions--mobile .btn {
+    width: 100%;
+  }
+
+  .navbar__burger {
+    display: flex;
+  }
+}

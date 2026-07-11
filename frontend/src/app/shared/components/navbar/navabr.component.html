@@ -1,0 +1,32 @@
+<header class="navbar">
+  <div class="navbar__container">
+    <a class="navbar__brand" routerLink="/" (click)="closeMobileMenu()">
+      <span class="navbar__logo">🐑</span>
+      <span class="navbar__brand-text">
+        SmartHerd<span class="navbar__brand-sub">MANAGER</span>
+      </span>
+    </a>
+
+    <nav class="navbar__links" [class.navbar__links--open]="isMobileMenuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()">Accueil</a>
+      <a routerLink="/fonctionnalites" routerLinkActive="active" (click)="closeMobileMenu()">Fonctionnalités</a>
+      <a routerLink="/a-propos" routerLinkActive="active" (click)="closeMobileMenu()">À propos</a>
+      <a routerLink="/tarifs" routerLinkActive="active" (click)="closeMobileMenu()">Tarifs</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a>
+
+      <div class="navbar__actions navbar__actions--mobile">
+        <a class="btn btn--outline" routerLink="/auth/login" (click)="closeMobileMenu()">Se connecter</a>
+        <a class="btn btn--primary" routerLink="/auth/register" (click)="closeMobileMenu()">Créer un compte</a>
+      </div>
+    </nav>
+
+    <div class="navbar__actions navbar__actions--desktop">
+      <a class="btn btn--outline" routerLink="/auth/login">Se connecter</a>
+      <a class="btn btn--primary" routerLink="/auth/register">Créer un compte</a>
+    </div>
+
+    <button class="navbar__burger" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen()" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

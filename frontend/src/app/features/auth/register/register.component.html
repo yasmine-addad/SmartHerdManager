@@ -1,0 +1,36 @@
+<section class="auth">
+  <form class="auth__card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1 class="auth__title">Créer un compte</h1>
+
+    <div class="auth__row">
+      <label class="auth__field">
+        <span>Prénom</span>
+        <input type="text" formControlName="firstName" />
+      </label>
+      <label class="auth__field">
+        <span>Nom</span>
+        <input type="text" formControlName="lastName" />
+      </label>
+    </div>
+
+    <label class="auth__field">
+      <span>Email</span>
+      <input type="email" formControlName="email" placeholder="vous@exemple.com" />
+    </label>
+
+    <label class="auth__field">
+      <span>Mot de passe</span>
+      <input type="password" formControlName="password" placeholder="••••••••" />
+    </label>
+
+    <p class="auth__error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+
+    <button class="btn btn--primary btn--lg auth__submit" type="submit" [disabled]="isLoading()">
+      {{ isLoading() ? 'Création…' : 'Créer un compte' }}
+    </button>
+
+    <p class="auth__switch">
+      Déjà un compte ? <a routerLink="/auth/login">Se connecter</a>
+    </p>
+  </form>
+</section>

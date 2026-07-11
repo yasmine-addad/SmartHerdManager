@@ -1,0 +1,29 @@
+<section class="animals">
+  <h1 class="animals__title">Gestion des animaux</h1>
+
+  <p *ngIf="isLoading()">Chargement…</p>
+
+  <table class="animals__table" *ngIf="!isLoading()">
+    <thead>
+      <tr>
+        <th>Identifiant</th>
+        <th>Espèce</th>
+        <th>Race</th>
+        <th>Sexe</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let animal of animals()">
+        <td>{{ animal.identifier }}</td>
+        <td>{{ animal.species }}</td>
+        <td>{{ animal.breed }}</td>
+        <td>{{ animal.sex === 'female' ? 'Femelle' : 'Mâle' }}</td>
+        <td>{{ animal.status }}</td>
+      </tr>
+      <tr *ngIf="!animals().length">
+        <td colspan="5">Aucun animal enregistré.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,20 @@
+<section class="dashboard">
+  <h1 class="dashboard__title">Tableau de bord</h1>
+
+  <div class="dashboard__stats">
+    <div class="stat-card">
+      <span class="stat-card__value">{{ animals().length }}</span>
+      <span class="stat-card__label">Animaux au total</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__value">{{ activeAnimalsCount }}</span>
+      <span class="stat-card__label">Animaux actifs</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__value">{{ unreadAlertsCount }}</span>
+      <span class="stat-card__label">Alertes non lues</span>
+    </div>
+  </div>
+
+  <p *ngIf="isLoading()">Chargement des données…</p>
+</section>
