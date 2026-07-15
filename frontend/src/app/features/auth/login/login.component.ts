@@ -15,16 +15,18 @@ export class LoginComponent {
   readonly errorMessage = signal<string | null>(null);
   readonly isLoading = signal(false);
 
-  readonly form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-  });
+  form!: ReturnType<FormBuilder['group']>;
 
   constructor(
     private readonly fb: FormBuilder,
     private readonly authService: AuthService,
     private readonly router: Router,
-  ) {}
+  ) {
+  this.form = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+  });
+  }
 
   submit(): void {
     if (this.form.invalid) {
