@@ -19,13 +19,13 @@ export class AuthService {
 
   login(credentials: AuthCredentials): Observable<AuthResponse> {
     return this.http
-      .post<AuthResponse>(`${environment.apiUrl}/auth/login/`, credentials)
+      .post<AuthResponse>(`${environment.apiUrl}/login/`, credentials)
       .pipe(tap((response) => this.persistSession(response)));
   }
 
   register(payload: AuthCredentials & { firstName: string; lastName: string }): Observable<AuthResponse> {
     return this.http
-      .post<AuthResponse>(`${environment.apiUrl}/auth/register/`, payload)
+      .post<AuthResponse>(`${environment.apiUrl}/register/`, payload)
       .pipe(tap((response) => this.persistSession(response)));
   }
 

@@ -1,38 +1,110 @@
-.dashboard {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
+.dashboard{
+
+    padding:40px;
+    max-width:1300px;
+    margin:auto;
+
 }
 
-.dashboard__title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.9rem;
-  margin-bottom: 1.5rem;
+.welcome{
+
+    margin-bottom:40px;
+
 }
 
-.dashboard__stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.25rem;
+.welcome h1{
+
+    font-size:34px;
+    color:#1f2937;
+    margin-bottom:12px;
+    font-weight:700;
+
 }
 
-.stat-card {
-  background: #f2efe4;
-  border: 1px solid #eae5d8;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+.welcome p{
+
+    color:#6b7280;
+    font-size:16px;
+    line-height:1.7;
+
 }
 
-.stat-card__value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #4a5a2a;
+.modules{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:25px;
+
 }
 
-.stat-card__label {
-  font-size: 0.9rem;
-  color: #5a5a52;
+.module-card{
+
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:25px;
+    cursor:pointer;
+    transition:all .25s ease;
+
+}
+
+.module-card:hover{
+
+    transform:translateY(-4px);
+    border-color:#4b7f3c;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.module-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+
+}
+
+.module-header h2{
+
+    font-size:20px;
+    color:#1f2937;
+    margin:0;
+
+}
+
+.arrow{
+
+    color:#4b7f3c;
+    font-size:24px;
+    transition:.25s;
+
+}
+
+.module-card:hover .arrow{
+
+    transform:translateX(6px);
+
+}
+
+.module-card p{
+
+    color:#6b7280;
+    line-height:1.6;
+    margin-bottom:18px;
+
+}
+
+.module-card ul{
+
+    padding-left:18px;
+    margin:0;
+
+}
+
+.module-card li{
+
+    color:#374151;
+    margin-bottom:10px;
+
 }

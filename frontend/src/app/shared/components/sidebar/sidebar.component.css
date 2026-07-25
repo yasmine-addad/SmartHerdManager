@@ -1,0 +1,74 @@
+.sidebar {
+    width:270px;
+    height:100vh;
+
+    background:#ffffff;
+    border-right:1px solid #edf1f5;
+
+    padding:24px 18px;
+
+    position:sticky;
+    top:0;
+}
+
+
+/* Navigation */
+
+nav {
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+
+nav a {
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    text-decoration:none;
+
+    color:#475569;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    font-size:15px;
+    font-weight:500;
+
+    transition:0.25s ease;
+}
+
+
+/* Icônes Lucide */
+
+nav a lucide-angular {
+    width:20px;
+    height:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* Survol */
+
+nav a:hover {
+    background:#f8faf8;
+    color:#3c7a33;
+
+    transform:translateX(3px);
+}
+
+
+/* Page active */
+
+nav a.active {
+    background:#eef7e8;
+
+    color:#3f7d34;
+
+    font-weight:600;
+}

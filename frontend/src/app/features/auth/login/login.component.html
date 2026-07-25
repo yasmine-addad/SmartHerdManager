@@ -1,25 +1,91 @@
 <section class="auth">
-  <form class="auth__card" [formGroup]="form" (ngSubmit)="submit()">
-    <h1 class="auth__title">Se connecter</h1>
+  <div class="auth__overlay"></div>
 
-    <label class="auth__field">
-      <span>Email</span>
-      <input type="email" formControlName="email" placeholder="vous@exemple.com" />
-    </label>
+  <div class="auth__container">
 
-    <label class="auth__field">
-      <span>Mot de passe</span>
-      <input type="password" formControlName="password" placeholder="••••••••" />
-    </label>
+    <!-- TEXTE DE BIENVENUE -->
+    <div class="auth__welcome">
+      <h1>
+        Bienvenue chez
+        <span>SmartHerdManager</span>
+      </h1>
+      <p>
+        connectez-vous à votre compte pour continuer à gérer votre élevage
+        efficacement.
+      </p>
+    </div>
 
-    <p class="auth__error" *ngIf="errorMessage()">{{ errorMessage() }}</p>
+    <!-- FORMULAIRE -->
+    <form
+      class="auth__card"
+      [formGroup]="form"
+      (ngSubmit)="submit()">
 
-    <button class="btn btn--primary btn--lg auth__submit" type="submit" [disabled]="isLoading()">
-      {{ isLoading() ? 'Connexion…' : 'Se connecter' }}
-    </button>
+      <div class="auth__header">
+        <h2 class="auth__title">Se connecter</h2>
+        <p class="auth__subtitle">
+          Entrez vos identifiants pour accéder à votre compte
+        </p>
+      </div>
 
-    <p class="auth__switch">
-      Pas encore de compte ? <a routerLink="/auth/register">Créer un compte</a>
-    </p>
-  </form>
+      <p class="auth__error" *ngIf="errorMessage()">
+        {{ errorMessage() }}
+      </p>
+
+      <label class="auth__field">
+        <span>Email</span>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="entrez votre email"
+          autocomplete="email">
+      </label>
+
+      <label class="auth__field">
+        <span>Mot de passe</span>
+
+        <div class="password-wrapper">
+          <input
+            [type]="showPassword() ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="entrez votre mot de passe"
+            autocomplete="current-password">
+
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="togglePassword()">
+            {{ showPassword() ? 'Masquer' : 'Afficher' }}
+          </button>
+        </div>
+      </label>
+
+      <div class="auth__options">
+        <a href="#">Mot de passe oublié ?</a>
+      </div>
+
+      <button
+        class="auth__submit"
+        type="submit"
+        [disabled]="isLoading()">
+        {{ isLoading() ? 'Connexion...' : 'Se connecter' }}
+      </button>
+
+      <div class="auth__divider">ou</div>
+
+      <button
+        type="button"
+        class="auth__google"
+        (click)="loginWithGoogle()">
+        Se connecter avec Google
+      </button>
+
+      <div class="auth__footer">
+        <p>Vos données sont sécurisées avec nous</p>
+        <p>Nous ne partageons jamais vos informations</p>
+      </div>
+
+    </form>
+
+  </div>
 </section>
