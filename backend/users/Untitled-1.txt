@@ -1,0 +1,187 @@
+Pour ce Sprint 2 - Gestion des animaux, tu n'as pas besoin de réaliser tous les diagrammes UML existants. Pour un rapport de PFE, il vaut mieux privilégier les diagrammes qui apportent réellement de la valeur.
+
+Je te recommande les diagrammes suivants.
+
+1. Diagramme de cas d'utilisation (Use Case Diagram) ⭐⭐⭐⭐⭐ (Obligatoire)
+
+Il présente toutes les fonctionnalités du sprint du point de vue de l'utilisateur.
+
+Acteur :
+
+Utilisateur / Éleveur
+
+Cas d'utilisation :
+
+Ajouter un animal
+Modifier un animal
+Supprimer un animal
+Consulter les détails d'un animal
+Consulter la liste des animaux
+Rechercher un animal
+Filtrer les animaux
+Consulter l'historique d'un animal
+
+C'est le premier diagramme à mettre dans le rapport.
+
+2. Diagramme de classes ⭐⭐⭐⭐⭐ (Obligatoire)
+
+Même si tu l'as déjà fait pour tout le projet, il est intéressant d'en montrer une version centrée sur ce sprint.
+
+Classes principales :
+
+Animal
+Utilisateur
+HistoriqueAction
+Action
+
+Relations :
+
+Utilisateur
+      |
+      | 1
+      |
+      | *
+    Animal
+      |
+      | 1
+      |
+      | *
+HistoriqueAction
+      |
+      | *
+      |
+      | 1
+    Action
+3. Diagrammes de séquence ⭐⭐⭐⭐⭐ (Très recommandés)
+
+Ils expliquent comment chaque fonctionnalité fonctionne.
+
+Tu n'es pas obligé d'en faire huit.
+
+Les plus importants sont :
+
+Séquence 1
+
+Ajouter un animal
+
+Utilisateur
+
+↓
+
+Interface Angular
+
+↓
+
+API Django
+
+↓
+
+Base de données
+Séquence 2
+
+Modifier un animal
+
+Séquence 3
+
+Supprimer un animal
+(si tu fais une suppression logique, c'est encore mieux)
+
+Séquence 4
+
+Consulter les détails d'un animal
+
+Séquence 5
+
+Consulter l'historique
+
+La recherche et le filtrage peuvent être regroupés dans un seul diagramme.
+
+Donc environ 5 diagrammes de séquence suffisent.
+
+4. Diagramme d'activité ⭐⭐⭐⭐☆
+
+Très utile.
+
+Je le ferais uniquement pour :
+
+Gestion des animaux
+Début
+
+↓
+
+Consulter la liste
+
+↓
+
+Choisir une action
+
+↓
+
+Ajouter
+Modifier
+Supprimer
+Consulter
+Historique
+
+↓
+
+Fin
+
+Ou bien un diagramme plus détaillé pour Ajouter un animal.
+
+5. Diagramme d'états (State Machine) ⭐⭐⭐☆☆
+
+Il est intéressant uniquement parce que ton modèle Animal possède un champ statut.
+
+Exemple :
+
+             Créé
+               |
+               |
+           Actif
+          /     \
+         /       \
+    Malade      Vendu
+         \
+          \
+         Décédé
+
+Il montre l'évolution du statut de l'animal.
+
+6. Diagramme de composants ⭐⭐☆☆☆
+
+Pas indispensable pour ce sprint.
+
+Si tu en fais un pour tout le projet, cela suffit.
+
+7. Diagramme de déploiement ⭐⭐☆☆☆
+
+À faire uniquement à la fin du projet.
+
+Pour ton rapport de PFE, je te conseille cette organisation
+Sprint 2
+Description du sprint
+Acteurs
+User Stories
+Product Backlog
+Diagramme de cas d'utilisation
+Diagramme de classes
+Diagrammes de séquence
+Ajouter un animal
+Modifier un animal
+Supprimer un animal
+Consulter les détails
+Consulter l'historique (ou Historique + Recherche/Filtrage selon la place)
+Diagramme d'activité
+Diagramme d'états de l'animal
+Maquettes des interfaces
+Captures d'écran de l'application
+Tests réalisés
+Au total
+✅ 1 diagramme de cas d'utilisation
+✅ 1 diagramme de classes
+✅ 5 diagrammes de séquence
+✅ 1 diagramme d'activité
+✅ 1 diagramme d'états
+
+Soit 9 diagrammes, ce qui est généralement suffisant pour documenter complètement ce sprint dans un rapport de PFE, sans le surcharger.

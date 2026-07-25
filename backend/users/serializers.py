@@ -1,8 +1,9 @@
 
 from rest_framework import serializers
-from .models import User,HistoriqueAction
+from .models import User,Historique,HistoriqueAction
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import Licence
+
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -48,21 +49,43 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             **validated_data
         )
 
+        Historique.objects.create(
+        user=user
+        )
+
         return user
     
 
 
 class LoginSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
 
-    @classmethod
-    def get_token(cls, user):
-        token = super().get_token(user)
+        data = super().validate(attrs)
 
-        token["email"] = user.email
-        token["first_name"] = user.first_name
-        token["last_name"] = user.last_name
 
-        return token
+        user = self.user
+
+
+        data["user"] = {
+
+            "id": user.id,
+
+            "email": user.email,
+
+            "firstName": user.first_name,
+
+            "lastName": user.last_name,
+
+            "role": "admin" if user.is_staff else "manager",
+
+            "isActive": user.is_active,
+
+            "createdAt": user.date_joined
+
+        }
+
+
+        return data
     
 class ProfileSerializer(serializers.ModelSerializer):
 
@@ -121,4 +144,15 @@ class AdminLicenceSerializer(serializers.ModelSerializer):
             "date_debut",
             "date_expiration",
             "statut",
+        ]
+
+class AnimalHistoriqueSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = HistoriqueAction
+        fields = [
+            "id",
+            "type_action",
+            "details",
+            "date_action",
         ]

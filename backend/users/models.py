@@ -82,6 +82,8 @@ class Historique(models.Model):
         related_name="historique"
     )
 
+
+
     def __str__(self):
         return f"Historique de {self.user.first_name}"
     
@@ -92,7 +94,22 @@ class HistoriqueAction(models.Model):
         ('LOGIN', 'Connexion'),
         ('LOGOUT', 'Déconnexion'),
         ('PROFILE_UPDATE', 'Modification du profil'),
+
+        ('ANIMAL_CREATE', 'Ajout d’un animal'),
+        ('ANIMAL_UPDATE', 'Modification d’un animal'),
+        ('ANIMAL_DELETE', 'Suppression d’un animal'),
+        ('STATUS_CHANGE', 'Changement de statut'),
+        ('WEIGHT_UPDATE', 'Modification du poids'),
+        ('PHOTO_UPDATE', 'Modification de la photo'),
     ]
+
+    animal = models.ForeignKey(
+    "animals.Animal",
+    on_delete=models.SET_NULL,
+    related_name="historique_actions",
+    null=True,
+    blank=True
+    )
 
     historique = models.ForeignKey(
         Historique,

@@ -33,7 +33,8 @@ from .serializers import AdminLicenceSerializer
 
 from django.utils import timezone
 
-
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import LoginSerializer
 
 @csrf_exempt
 @api_view(['POST'])
@@ -55,7 +56,7 @@ def register(request):
     return Response(
         serializer.errors,
         status=status.HTTP_400_BAD_REQUEST
-    )
+    ) 
 
 def ajouter_historique(user, type_action, details=""):
 
