@@ -1,99 +1,713 @@
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 2rem;
-  padding: 3rem 1.5rem;
-  max-width: 1280px;
-  margin: 0 auto;
+/* =========================================================
+   SMART HERD MANAGER
+   HOME
+   ========================================================= */
+
+
+/* =========================================================
+   HOST / RESET LOCAL
+   ========================================================= */
+
+:host {
+  display: block;
+  width: 100%;
 }
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #ffffff;
+  color: #111111;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+
+  width: calc(100% - 38px);
+  min-height: 455px;
+
+  margin: 22px 19px 0;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND
+   ========================================================= */
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(231, 204, 169, 0.98) 0%,
+      rgba(231, 204, 169, 0.94) 25%,
+      rgba(231, 204, 169, 0.72) 42%,
+      rgba(231, 204, 169, 0.20) 62%,
+      rgba(231, 204, 169, 0.02) 78%
+    ),
+    url('mouton+effet.png');
+
+  background-size: cover;
+
+  background-position:
+    center center;
+
+  background-repeat: no-repeat;
+
+  transform: scale(1.01);
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero__content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1420px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding:
+    55px 62px;
+}
+
+
+.hero__copy {
+  width: min(610px, 52%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
 
 .hero__title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 3rem;
-  line-height: 1.15;
-  color: #1e1e1c;
-  margin-bottom: 1rem;
+  margin: 0;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size:
+    clamp(2.7rem, 4vw, 3.7rem);
+
+  font-weight: 400;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.035em;
+
+  color: #111111;
 }
 
-.hero__title-accent {
-  color: #5c6b35;
+
+.hero__title span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #505800;
 }
 
-.hero__subtitle {
-  font-size: 1.05rem;
-  color: #5a5a52;
-  line-height: 1.6;
-  margin-bottom: 1.75rem;
-  max-width: 480px;
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.hero__description {
+  max-width: 590px;
+
+  margin:
+    26px 0 0;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size:
+    clamp(1.05rem, 1.45vw, 1.28rem);
+
+  line-height: 1.45;
+
+  color: #171717;
 }
+
+
+/* =========================================================
+   HERO ACTIONS
+   ========================================================= */
 
 .hero__actions {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 42px;
 }
 
-.btn--lg {
-  padding: 0.85rem 1.6rem;
-  font-size: 1rem;
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.btn {
+  min-height: 62px;
+
+  padding:
+    0 34px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size: 1.08rem;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  border: 1px solid transparent;
+
+  cursor: pointer;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
 }
 
-.hero__image img {
-  width: 100%;
-  border-radius: 1rem;
-  object-fit: cover;
-  max-height: 480px;
+
+.btn--primary,
+.btn--secondary {
+  background: #565d00;
+  color: #ffffff;
 }
+
+
+.btn--primary:hover,
+.btn--secondary:hover {
+  background: #464d00;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 24px rgba(70, 77, 0, 0.22);
+}
+
+
+.btn:focus-visible {
+  outline: 3px solid rgba(86, 93, 0, 0.30);
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
 
 .features {
-  max-width: 1280px;
-  margin: 2rem auto 4rem;
-  padding: 0 1.5rem;
+  padding:
+    58px 35px 80px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   FEATURES HEADER
+   ========================================================= */
+
+.features__header {
+  max-width: 980px;
+
+  margin:
+    0 auto 38px;
+
   text-align: center;
 }
 
+
 .features__eyebrow {
-  color: #5c6b35;
+  margin: 0 0 10px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.78rem;
+
   font-weight: 700;
-  letter-spacing: 0.1em;
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
+
+  letter-spacing: 0.18em;
+
+  color: #565d00;
 }
+
 
 .features__title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 2rem;
-  color: #1e1e1c;
-  margin-bottom: 2.5rem;
+  margin: 0;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size:
+    clamp(1.8rem, 2.7vw, 2.35rem);
+
+  font-weight: 400;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.02em;
+
+  color: #171717;
 }
+
+
+.features__description {
+  max-width: 700px;
+
+  margin:
+    14px auto 0;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size: 1.05rem;
+
+  line-height: 1.55;
+
+  color: #4d4d4d;
+}
+
+
+/* =========================================================
+   FEATURES GRID
+   ========================================================= */
 
 .features__grid {
+  width: 100%;
+  max-width: 1370px;
+
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 24px;
 }
 
-@media (max-width: 900px) {
+
+/* =========================================================
+   FEATURE CARD
+   ========================================================= */
+
+.feature-card {
+  position: relative;
+
+  min-height: 315px;
+
+  padding:
+    28px 24px 25px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #eff8d2;
+
+  border:
+    1px solid rgba(86, 93, 0, 0.08);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+
+.feature-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(86, 93, 0, 0.18);
+
+  box-shadow:
+    0 15px 35px rgba(50, 55, 0, 0.10);
+}
+
+
+/* =========================================================
+   CARD NUMBER
+   ========================================================= */
+
+.feature-card__number {
+  margin-bottom: 18px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  color: #747a31;
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.feature-card h3 {
+  margin: 0;
+
+  padding:
+    12px 10px;
+
+  background: #cbd18c;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size: 1.08rem;
+
+  font-weight: 400;
+
+  line-height: 1.25;
+
+  text-align: center;
+
+  color: #171717;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.feature-card p {
+  margin:
+    24px auto 0;
+
+  max-width: 230px;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    serif;
+
+  font-size: 1rem;
+
+  line-height: 1.48;
+
+  text-align: center;
+
+  color: #252525;
+}
+
+
+/* =========================================================
+   CARD LINK
+   ========================================================= */
+
+.feature-card__link {
+  margin-top: auto;
+  padding-top: 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+
+  color: #565d00;
+
+  text-decoration: none;
+}
+
+
+.feature-card__link span {
+  transition:
+    transform 180ms ease;
+}
+
+
+.feature-card__link:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1500px) {
+
   .hero {
-    grid-template-columns: 1fr;
+    min-height: 470px;
   }
 
-  .hero__image {
-    order: -1;
+
+  .hero__content {
+    padding-left: 70px;
   }
 
-  .hero__title {
-    font-size: 2.25rem;
+
+  .features {
+    padding-left: 50px;
+    padding-right: 50px;
   }
+
+
+  .features__grid {
+    gap: 30px;
+  }
+
 }
 
-@media (max-width: 600px) {
-  .hero__actions {
-    flex-direction: column;
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .hero {
+    min-height: 500px;
   }
 
-  .hero__actions .btn {
+
+  .hero__content {
+    padding:
+      50px 45px;
+  }
+
+
+  .hero__copy {
+    width: 58%;
+  }
+
+
+  .hero__actions {
+    gap: 15px;
+  }
+
+
+  .btn {
+    padding:
+      0 24px;
+
+    font-size: 0.98rem;
+  }
+
+
+  .features__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    width: calc(100% - 24px);
+
+    min-height: 620px;
+
+    margin:
+      12px 12px 0;
+  }
+
+
+  .hero__background {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(231, 204, 169, 0.97) 0%,
+        rgba(231, 204, 169, 0.91) 43%,
+        rgba(231, 204, 169, 0.30) 78%,
+        rgba(231, 204, 169, 0.05) 100%
+      ),
+      url('/assets/images/arriere.png');
+
+    background-position:
+      center bottom;
+  }
+
+
+  .hero__content {
+    padding:
+      48px 25px;
+  }
+
+
+  .hero__copy {
     width: 100%;
   }
+
+
+  .hero__title {
+    font-size: 2.65rem;
+  }
+
+
+  .hero__description {
+    font-size: 1.08rem;
+
+    line-height: 1.5;
+  }
+
+
+  .hero__actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+
+    margin-top: 32px;
+  }
+
+
+  .btn {
+    width: 100%;
+
+    min-height: 58px;
+  }
+
+
+  .features {
+    padding:
+      50px 18px 65px;
+  }
+
+
+  .features__header {
+    margin-bottom: 30px;
+  }
+
+
+  .features__title {
+    font-size: 1.75rem;
+  }
+
+
+  .features__description {
+    font-size: 0.98rem;
+  }
+
+
+  .features__grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  .feature-card {
+    min-height: 290px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .hero__title {
+    font-size: 2.3rem;
+  }
+
+
+  .hero__description {
+    font-size: 1rem;
+  }
+
+
+  .features__title {
+    font-size: 1.55rem;
+  }
+
 }

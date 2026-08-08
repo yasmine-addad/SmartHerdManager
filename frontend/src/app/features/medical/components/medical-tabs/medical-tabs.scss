@@ -1,0 +1,47 @@
+.tabs{
+
+display:flex;
+
+gap:5px;
+
+background:white;
+
+padding:6px;
+
+border-radius:12px;
+
+border:1px solid var(--border);
+
+}
+
+button{
+
+border:none;
+
+background:transparent;
+
+padding:12px 22px;
+
+cursor:pointer;
+
+border-radius:10px;
+
+font-weight:500;
+
+color:#667085;
+
+transition:.25s;
+
+}
+
+button.active{
+
+background:#496d23;
+
+color:white;
+
+box-shadow:
+0 5px 15px
+rgba(70,107,31,.25);
+
+}

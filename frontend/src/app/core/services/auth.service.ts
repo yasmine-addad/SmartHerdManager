@@ -51,4 +51,27 @@ export class AuthService {
     const raw = localStorage.getItem(USER_KEY);
     return raw ? (JSON.parse(raw) as User) : null;
   }
+
+  forgotPassword(email: string) {
+  return this.http.post(
+    `${environment.apiUrl}/forgot-password/`,
+    { email }
+  );
+}
+
+   resetPassword(
+    uid: string,
+    token: string,
+    password: string 
+  ) 
+    {
+      return this.http.post(
+        `${environment.apiUrl}/reset-password/`,
+        {
+          uid,
+          token,
+          password
+        }
+      );
+    }
 }

@@ -32,6 +32,10 @@ urlpatterns = [
     path('api/login/',LoginView.as_view(),name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/animals/',include('animals.urls')),
+    path("api/medical/", include("medical.urls")),
+    path("api/reproduction/", include("reproduction.urls")),
+    path('api/alertes/', include('alerts.urls')),
+    path('api/dashboard/', include('dashboard.urls')),
 ]
 
 urlpatterns += static(

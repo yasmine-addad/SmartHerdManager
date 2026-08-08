@@ -47,3 +47,59 @@ img {
   max-width: 100%;
   display: block;
 }
+
+:root {
+
+  --primary:#466b1f;
+  --primary-light:#dfe9c8;
+  --secondary:#f8faf5;
+
+  --text:#1d2520;
+  --muted:#6b7280;
+
+  --border:#e5e7eb;
+
+  --danger:#dc2626;
+  --warning:#d97706;
+
+  --radius:14px;
+
+  --shadow:0 10px 30px rgba(0,0,0,.06);
+
+  --transition:all .25s ease;
+
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+}
+
+body{
+
+  font-family:'Inter',system-ui,sans-serif;
+
+  background:#fafbf8;
+
+  color:var(--text);
+
+}
+
+button{
+
+  font-family:inherit;
+
+}
+
+input,
+select,
+textarea{
+
+  font-family:inherit;
+
+}

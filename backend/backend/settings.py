@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
     'django_filters',
     'corsheaders',
+    'medical.apps.MedicalConfig',
+    'reproduction',
+    'alerts',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -148,4 +152,18 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'tonemail@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'mot_de_passe_application'
+
+
 

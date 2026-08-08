@@ -7,6 +7,8 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from .views import ForgotPasswordView, ResetPasswordView
+
 from .views import LoginView
 
 from .views import ProfileView
@@ -71,5 +73,15 @@ urlpatterns = [
     "admin/dashboard/",
     AdminDashboardView.as_view(),
     name="admin-dashboard"
+    ),
+
+    path(
+    'forgot-password/',
+    ForgotPasswordView.as_view()
+    ),
+
+    path(
+    'reset-password/',
+    ResetPasswordView.as_view()
     ),
 ]

@@ -101,6 +101,17 @@ class HistoriqueAction(models.Model):
         ('STATUS_CHANGE', 'Changement de statut'),
         ('WEIGHT_UPDATE', 'Modification du poids'),
         ('PHOTO_UPDATE', 'Modification de la photo'),
+
+         # Module médical
+    ('AJOUT_VACCINATION', 'Ajout d’une vaccination'),
+    ('AJOUT_MALADIE', 'Ajout d’une maladie'),
+    ('AJOUT_TRAITEMENT', 'Ajout d’un traitement'),
+    ('AJOUT_VISITE_VETERINAIRE', 'Ajout d’une visite vétérinaire'),
+
+    ('MODIFICATION_VACCINATION', 'Modification d’une vaccination'),
+    ('MODIFICATION_MALADIE', 'Modification d’une maladie'),
+    ('MODIFICATION_TRAITEMENT', 'Modification d’un traitement'),
+    ('MODIFICATION_VISITE_VETERINAIRE', 'Modification d’une visite vétérinaire'),
     ]
 
     animal = models.ForeignKey(
@@ -118,7 +129,7 @@ class HistoriqueAction(models.Model):
     )
 
     type_action = models.CharField(
-        max_length=30,
+        max_length=100,
         choices=TYPE_CHOICES
     )
 

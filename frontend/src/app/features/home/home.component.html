@@ -1,34 +1,218 @@
-<section class="hero">
-  <div class="hero__content">
-    <h1 class="hero__title">
-      Gérez votre élevage<br />
-      <span class="hero__title-accent">en toute simplicité</span>
-    </h1>
-    <p class="hero__subtitle">
-      SmartHerdManager est la solution tout-en-un pour suivre, gérer et développer votre cheptel efficacement.
-    </p>
-    <div class="hero__actions">
-      <a class="btn btn--primary btn--lg" routerLink="/auth/register">Créer un compte</a>
-      <a class="btn btn--outline btn--lg" routerLink="/fonctionnalites">Découvrir les fonctionnalités</a>
-    </div>
-  </div>
-  <div class="hero__image">
-    <img src="assets/images/hero-sheep.jpg" alt="Troupeau de moutons au coucher de soleil" />
-  </div>
-</section>
+<main class="home">
 
-<section class="features">
-  <p class="features__eyebrow">FONCTIONNALITÉS</p>
-  <h2 class="features__title">
-    Tout ce dont vous avez besoin<br />
-    pour gérer votre élevage
-  </h2>
-  <div class="features__grid">
-    <app-feature-card
-      *ngFor="let feature of features"
-      [icon]="feature.icon"
-      [title]="feature.title"
-      [description]="feature.description"
-    />
-  </div>
-</section>
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="hero" id="accueil">
+
+    <div class="hero__background" aria-hidden="true"></div>
+
+    <div class="hero__content">
+
+      <div class="hero__copy">
+
+        <h1 class="hero__title">
+          Gérez votre élevage
+          <span>En toute simplicité</span>
+        </h1>
+
+        <p class="hero__description">
+          SmartHerdManager est la solution tout-en-un
+          pour suivre, gérer et développer votre cheptel
+          efficacement.
+        </p>
+
+        <div class="hero__actions">
+
+          <a
+            routerLink="/auth/register"
+            class="btn btn--primary"
+          >
+            Créer un compte
+          </a>
+
+          <a
+            href="#fonctionnalites"
+            class="btn btn--secondary"
+          >
+            Découvrir les fonctionnalités
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FONCTIONNALITÉS
+  ====================================================== -->
+
+  <section
+    class="features"
+    id="fonctionnalites"
+  >
+
+    <div class="features__header">
+
+      <p class="features__eyebrow">
+        NOS FONCTIONNALITÉS
+      </p>
+
+      <h2 class="features__title">
+        Une technologie pensée pour les élevages modernes
+      </h2>
+
+      <p class="features__description">
+        Suivez vos animaux, analysez vos données et optimisez
+        votre exploitation grâce à une gestion centralisée.
+      </p>
+
+    </div>
+
+
+    <div class="features__grid">
+
+      <article class="feature-card">
+
+        <div class="feature-card__number">
+          01
+        </div>
+
+        <h3>
+          Gestion des animaux
+        </h3>
+
+        <p>
+          Ajoutez, gérez et consultez les fiches complètes
+          de vos animaux avec un suivi détaillé de leur
+          historique.
+        </p>
+
+        <a
+          href="#accueil"
+          class="feature-card__link"
+        >
+          En savoir plus
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <div class="feature-card__number">
+          02
+        </div>
+
+        <h3>
+          Suivi sanitaire
+        </h3>
+
+        <p>
+          Enregistrez les vaccins, traitements, maladies
+          et visites vétérinaires afin d'assurer une
+          meilleure santé du cheptel.
+        </p>
+
+        <a
+          href="#accueil"
+          class="feature-card__link"
+        >
+          En savoir plus
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <div class="feature-card__number">
+          03
+        </div>
+
+        <h3>
+          Reproduction
+        </h3>
+
+        <p>
+          Suivez les cycles de reproduction, les saillies,
+          les gestations et les naissances de manière
+          organisée.
+        </p>
+
+        <a
+          href="#accueil"
+          class="feature-card__link"
+        >
+          En savoir plus
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <div class="feature-card__number">
+          04
+        </div>
+
+        <h3>
+          Système d'alertes
+        </h3>
+
+        <p>
+          Recevez des notifications automatiques pour les
+          rappels de vaccins, les mises-bas et les
+          rendez-vous vétérinaires.
+        </p>
+
+        <a
+          href="#accueil"
+          class="feature-card__link"
+        >
+          En savoir plus
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <div class="feature-card__number">
+          05
+        </div>
+
+        <h3>
+          Statistiques
+        </h3>
+
+        <p>
+          Visualisez les indicateurs clés, statistiques
+          et graphiques pour suivre l'évolution de votre
+          élevage.
+        </p>
+
+        <a
+          href="#accueil"
+          class="feature-card__link"
+        >
+          En savoir plus
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+</main>

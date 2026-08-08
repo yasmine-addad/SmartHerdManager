@@ -1,0 +1,57 @@
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th *ngFor="let c of columns">
+
+{{c}}
+
+</th>
+
+<th>
+
+Actions
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let row of data">
+
+<td *ngFor="let c of columns">
+
+{{row[c]}}
+
+</td>
+
+<td class="actions">
+
+<button class="edit">
+
+✎
+
+</button>
+
+<button class="delete">
+
+🗑
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

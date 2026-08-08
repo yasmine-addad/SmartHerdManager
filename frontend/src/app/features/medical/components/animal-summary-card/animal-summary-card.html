@@ -1,0 +1,79 @@
+<section class="animal-card">
+
+  <div class="photo">
+
+    <img
+      [src]="animal.photo"
+      alt="animal">
+
+    <button>
+
+      <i class="fa fa-camera"></i>
+
+    </button>
+
+  </div>
+
+  <div class="info">
+
+    <div class="title">
+
+      <h2>{{ animal.nom }}</h2>
+
+      <span class="status">
+
+        {{ animal.statut }}
+
+      </span>
+
+    </div>
+
+    <p>
+
+      🐑 {{ animal.espece }}
+
+      · {{ animal.race }}
+
+      · {{ animal.age }}
+
+    </p>
+
+    <div class="details">
+
+      <div>
+
+        <label>ID</label>
+
+        <strong>{{ animal.id }}</strong>
+
+      </div>
+
+      <div>
+
+        <label>Date naissance</label>
+
+        <strong>{{ animal.date_naissance }}</strong>
+
+      </div>
+
+      <div>
+
+        <label>Poids</label>
+
+        <strong>{{ animal.poids }} Kg</strong>
+
+      </div>
+
+      <div>
+
+        <label>Sexe</label>
+
+        <strong>{{ animal.sexe }}</strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

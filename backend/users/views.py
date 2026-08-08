@@ -18,7 +18,7 @@ from rest_framework.generics import RetrieveUpdateAPIView
 from .serializers import ProfileSerializer
 
 from rest_framework.generics import ListAPIView, DestroyAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,AllowAny
 
 from .models import HistoriqueAction,Historique,User,Licence
 from .serializers import HistoriqueActionSerializer
@@ -35,7 +35,9 @@ from django.utils import timezone
 
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import LoginSerializer
-
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
 @csrf_exempt
 @api_view(['POST'])
 def register(request):
@@ -241,4 +243,71 @@ class AdminDashboardView(APIView):
                 "expired_licenses": expired_licenses
             }
         )
+
+
+class ForgotPasswordView(APIView):
+
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+
+        email = request.data.get("email")
+
+        try:
+            user = User.objects.get(email=email)
+
+        except User.DoesNotExist:
+            return Response(
+                {"message":"Utilisateur introuvable"},
+                status=404
+            )
+
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+        token = PasswordResetTokenGenerator().make_token(user)
+
+        # envoyer email ici
+
+        return Response({
+            "uid":uid,
+            "token":token
+        })
+
+class ResetPasswordView(APIView):
+
+    permission_classes=[AllowAny]
+
+    def post(self,request):
+
+        uid=request.data.get("uid")
+        token=request.data.get("token")
+        password=request.data.get("password")
+
+        try:
+
+            id=force_str(urlsafe_base64_decode(uid))
+
+            user=User.objects.get(pk=id)
+
+        except:
+
+            return Response(
+                {"error":"Lien invalide"},
+                status=400
+            )
+
+        if not PasswordResetTokenGenerator().check_token(user,token):
+
+            return Response(
+                {"error":"Token invalide"},
+                status=400
+            )
+
+        user.set_password(password)
+
+        user.save()
+
+        return Response({
+            "message":"Mot de passe modifié"
+        })
     

@@ -560,21 +560,29 @@
 
 @media(max-width:600px){
 
+  .navbar__brand {
+    font-size:1.25rem;
+  }
 
-.navbar__brand {
-
- font-size:1.25rem;
+  .navbar__logo {
+    width: 145px;
+    height: 55px;
+  }
 
 }
 
 
 
 .navbar__logo {
+  width: 180px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+  transition: transform .3s ease;
+}
 
- width:45px;
-
- height:45px;
-
+.navbar__brand:hover .navbar__logo {
+  transform: scale(1.03);
 }
 
 
